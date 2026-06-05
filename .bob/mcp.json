@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+
+    "borneflow": {
+      "command": "C:/Users/CGI/Documents/borneflow-mcp-server/.venv/Scripts/python.exe",
+      "args": ["-m", "borneflow_mcp.server"],
+      "cwd": "C:/Users/CGI/Documents/borneflow-mcp-server/"
+    },
+
+    "jira": {
+      "command": "C:/Users/CGI/Documents/jira-mcp-server/.venv/Scripts/mcp-atlassian.exe",
+      "args": [
+        "--jira-url", "https://bobpoc1.atlassian.net",
+        "--jira-username", "saidaitsalah03@gmail.com",
+        "--jira-token", "ATATT_TOKEN_REDACTED",
+        "--jira-projects-filter", "BOB",
+        "--read-only"
+      ]
+    }
+
+  }
+}

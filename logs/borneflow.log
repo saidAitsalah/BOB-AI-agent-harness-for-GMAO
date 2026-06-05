@@ -1,0 +1,15 @@
+2026-06-01 15:26:55,440 [main] DEBUG com.borneflow.mbo.BfMbo - MBO add() — initialisation par défaut, type=ChargingStationMbo
+2026-06-01 15:26:55,445 [main] DEBUG c.borneflow.mbo.ChargingStationMbo - Nouvelle borne créée avec statut COMMISSIONED
+2026-06-01 15:26:55,447 [main] INFO  c.borneflow.mbo.ChargingStationMbo - Statut borne changé : COMMISSIONED ? OPERATIONAL
+2026-06-01 15:26:55,463 [main] DEBUG com.borneflow.mbo.BfMbo - MBO add() — initialisation par défaut, type=ChargingStationMbo
+2026-06-01 15:26:55,463 [main] DEBUG c.borneflow.mbo.ChargingStationMbo - Nouvelle borne créée avec statut COMMISSIONED
+2026-06-01 15:26:55,467 [main] DEBUG com.borneflow.mbo.BfMbo - MBO add() — initialisation par défaut, type=ChargingStationMbo
+2026-06-01 15:26:55,469 [main] DEBUG c.borneflow.mbo.ChargingStationMbo - Nouvelle borne créée avec statut COMMISSIONED
+2026-06-01 15:26:55,473 [main] DEBUG com.borneflow.mbo.BfMbo - MBO add() — initialisation par défaut, type=ChargingStationMbo
+2026-06-01 15:26:55,476 [main] DEBUG c.borneflow.mbo.ChargingStationMbo - Nouvelle borne créée avec statut COMMISSIONED
+2026-06-01 15:26:55,476 [main] DEBUG com.borneflow.mbo.BfMbo - MBO add() — initialisation par défaut, type=ChargingStationMbo
+2026-06-01 15:26:55,477 [main] DEBUG c.borneflow.mbo.ChargingStationMbo - Nouvelle borne créée avec statut COMMISSIONED
+2026-06-01 15:26:55,480 [main] DEBUG com.borneflow.mbo.BfMbo - MBO add() — initialisation par défaut, type=ChargingStationMbo
+2026-06-01 15:26:55,480 [main] DEBUG c.borneflow.mbo.ChargingStationMbo - Nouvelle borne créée avec statut COMMISSIONED
+2026-06-01 15:26:55,482 [main] INFO  c.borneflow.mbo.ChargingStationMbo - Statut borne changé : COMMISSIONED ? DECOMMISSIONED
+2026-06-01 15:26:56,808 [main] DEBUG c.b.service.ChargingStationService - Recherche des bornes opérationnelles
