@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ====================================================================
-  Projet BorneFlow - POC synthétique pour évaluation IBM Bob
-  ====================================================================
-
   Ce projet est un codebase fictif construit pour le POC IBM Bob dans
-  le cadre d'un projet de fin d'études chez CGI.
+  le cadre d'un projet chez CGI.
 
   - Aucun code réel SNCF, CGI ou autre client n'est utilisé.
   - L'architecture imite volontairement les patterns publics Maximo

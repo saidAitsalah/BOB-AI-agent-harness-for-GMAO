@@ -1,0 +1,72 @@
+
+==============================================================================
+[2026-07-17T00:09:06.287328] Échec à l'étape : asyncio.run(main())
+cwd au lancement : C:\Users\CGI\Documents\borneflow\tools\cactx
+sys.executable   : C:\Users\CGI\Documents\borneflow-mcp-server\.venv\Scripts\python.exe
+sys.path[0]      : C:\Users\CGI\Documents\borneflow\tools\cactx
+argv             : ['mcp_blackboard_server.py', '--root', 'C:\\Users\\CGI\\Documents\\borneflow']
+------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\CGI\Documents\borneflow-mcp-server\.venv\Lib\site-packages\anyio\streams\memory.py", line 117, in receive
+    return self.receive_nowait()
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\CGI\Documents\borneflow-mcp-server\.venv\Lib\site-packages\anyio\streams\memory.py", line 112, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\CGI\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\CGI\AppData\Local\Programs\Python\Python314\Lib\asyncio\base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\CGI\Documents\borneflow\tools\cactx\mcp_blackboard_server.py", line 226, in main
+    await app.run(r, w, app.create_initialization_options())
+  File "C:\Users\CGI\Documents\borneflow-mcp-server\.venv\Lib\site-packages\mcp\server\lowlevel\server.py", line 656, in run
+    async with AsyncExitStack() as stack:
+               ~~~~~~~~~~~~~~^^
+  File "C:\Users\CGI\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 768, in __aexit__
+    raise exc
+  File "C:\Users\CGI\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 751, in __aexit__
+    cb_suppress = await cb(*exc_details)
+                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CGI\Documents\borneflow-mcp-server\.venv\Lib\site-packages\mcp\shared\session.py", line 238, in __aexit__
+    return await self._task_group.__aexit__(exc_type, exc_val, exc_tb)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CGI\Documents\borneflow-mcp-server\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 803, in __aexit__
+    raise exc_val
+  File "C:\Users\CGI\Documents\borneflow-mcp-server\.venv\Lib\site-packages\mcp\server\lowlevel\server.py", line 673, in run
+    async with anyio.create_task_group() as tg:
+               ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\CGI\Documents\borneflow-mcp-server\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 803, in __aexit__
+    raise exc_val
+  File "C:\Users\CGI\Documents\borneflow-mcp-server\.venv\Lib\site-packages\mcp\server\lowlevel\server.py", line 675, in run
+    async for message in session.incoming_messages:
+    ...<8 lines>...
+        )
+  File "C:\Users\CGI\Documents\borneflow-mcp-server\.venv\Lib\site-packages\anyio\abc\_streams.py", line 35, in __anext__
+    return await self.receive()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CGI\Documents\borneflow-mcp-server\.venv\Lib\site-packages\anyio\streams\memory.py", line 125, in receive
+    await receive_event.wait()
+  File "C:\Users\CGI\Documents\borneflow-mcp-server\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 1804, in wait
+    await self._event.wait()
+  File "C:\Users\CGI\AppData\Local\Programs\Python\Python314\Lib\asyncio\locks.py", line 213, in wait
+    await fut
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\CGI\Documents\borneflow\tools\cactx\mcp_blackboard_server.py", line 248, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\CGI\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\CGI\AppData\Local\Programs\Python\Python314\Lib\asyncio\runners.py", line 132, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
