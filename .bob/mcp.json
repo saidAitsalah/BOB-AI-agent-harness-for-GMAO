@@ -1,12 +1,10 @@
 {
   "mcpServers": {
-
     "borneflow": {
       "command": "C:/Users/CGI/Documents/borneflow-mcp-server/.venv/Scripts/python.exe",
       "args": ["-m", "borneflow_mcp.server"],
       "cwd": "C:/Users/CGI/Documents/borneflow-mcp-server/"
     },
-
     "jira": {
       "command": "C:/Users/CGI/Documents/jira-mcp-server/.venv/Scripts/mcp-atlassian.exe",
       "args": [
@@ -16,7 +14,24 @@
         "--jira-projects-filter", "BOB",
         "--read-only"
       ]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "github_pat_REDACTED"
+      }
+    },
+    "borneflow-ctx": {
+      "command": "C:/Users/CGI/Documents/borneflow-mcp-server/.venv/Scripts/python.exe",
+      "args": [
+        "C:/Users/CGI/Documents/borneflow/tools/cactx/mcp_blackboard_server.py",
+        "--root", "C:/Users/CGI/Documents/borneflow"
+      ]
+    },
+    "BornFlowSpecs": {
+      "command": "C:/Users/CGI/Documents/bornflow-rag/venv_bornflowRAG/Scripts/python.exe",
+      "args": ["C:/Users/CGI/Documents/bornflow-rag/bornflow-rag/mcp_server.py"]
     }
-
   }
 }

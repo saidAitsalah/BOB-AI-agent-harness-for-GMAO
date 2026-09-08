@@ -17,9 +17,7 @@ import java.util.List;
 /**
  * Ressource REST exposant les bornes de recharge.
  *
- * <p>Style proche de l'API OSLC native de Maximo : chaque ressource est
- * identifiée par une URI et accessible via les verbes HTTP standard.</p>
- */
+  */
 @Path("/api/v1/stations")
 @Produces(MediaType.APPLICATION_JSON)
 public class ChargingStationResource {

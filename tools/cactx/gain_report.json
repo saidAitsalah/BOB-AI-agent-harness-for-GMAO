@@ -1,0 +1,64 @@
+{
+  "components": [
+    {
+      "component": "MaintenanceOrderService",
+      "calls_before": 6,
+      "tokens_before": 311,
+      "calls_after": 1,
+      "tokens_after": 242,
+      "files_read": [
+        "src/main/java/com/borneflow/dao/MaintenanceOrderDao.java",
+        "src/main/java/com/borneflow/mbo/MaintenanceOrderMbo.java",
+        "src/main/java/com/borneflow/resource/MaintenanceOrderResource.java",
+        "src/main/java/com/borneflow/service/MaintenanceOrderService.java"
+      ]
+    },
+    {
+      "component": "TechnicianLookupService",
+      "calls_before": 4,
+      "tokens_before": 194,
+      "calls_after": 1,
+      "tokens_after": 170,
+      "files_read": [
+        "src/main/java/com/borneflow/dao/TechnicianDao.java",
+        "src/main/java/com/borneflow/service/TechnicianLookupService.java"
+      ]
+    },
+    {
+      "component": "MaintenanceOrderResource",
+      "calls_before": 4,
+      "tokens_before": 234,
+      "calls_after": 1,
+      "tokens_after": 204,
+      "files_read": [
+        "src/main/java/com/borneflow/resource/MaintenanceOrderResource.java",
+        "src/main/java/com/borneflow/service/MaintenanceOrderService.java"
+      ]
+    },
+    {
+      "component": "TechnicianDao",
+      "calls_before": 4,
+      "tokens_before": 194,
+      "calls_after": 1,
+      "tokens_after": 210,
+      "files_read": [
+        "src/main/java/com/borneflow/dao/TechnicianDao.java",
+        "src/main/java/com/borneflow/service/TechnicianLookupService.java"
+      ]
+    }
+  ],
+  "extrapolation": {
+    "baseline_calls": 23.25,
+    "new_calls": 13.25,
+    "tokens_before": 313175.0,
+    "tokens_after": 206175.0,
+    "cost_before_usd": 1.565875,
+    "cost_after_usd": 1.030875,
+    "reduction_pct": -34.16620100582741
+  },
+  "caveats": [
+    "Coefficient empirique R~0.70, tendance et non loi exacte",
+    "Suppose que l'agent substitue effectivement les appels",
+    "Plafond theorique, a valider par une campagne T-07"
+  ]
+}

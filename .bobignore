@@ -4,8 +4,7 @@
 *.env
 application.properties
 *.properties
-*.yml
-*.yaml
+
 
 ../borneflow-mcp-server/data/
 
@@ -21,5 +20,3 @@ target/
 Thumbs.db
 
 BENCHMARK_DEFECTS.md
-
-.bob/
