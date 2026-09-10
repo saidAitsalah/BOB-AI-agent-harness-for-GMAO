@@ -10,7 +10,7 @@
       "args": [
         "--jira-url", "https://bobpoc1.atlassian.net",
         "--jira-username", "saidaitsalah03@gmail.com",
-        "--jira-token", "ATATT_TOKEN_REDACTED",
+        "--jira-token", "token_jira",
         "--jira-projects-filter", "BOB",
         "--read-only"
       ]
@@ -19,7 +19,7 @@
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-github"],
       "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "github_pat_REDACTED"
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "GITHUB_PERSONAL_ACCESS_TOKEN"
       }
     },
     "borneflow-ctx": {

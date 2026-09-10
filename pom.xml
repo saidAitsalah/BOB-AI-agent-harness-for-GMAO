@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Ce projet est un codebase fictif construit pour le POC IBM Bob dans
-  le cadre d'un projet chez CGI.
 
-  - Aucun code réel SNCF, CGI ou autre client n'est utilisé.
-  - L'architecture imite volontairement les patterns publics Maximo
-    (MBO / Service / DAO / API REST / Automation Scripts).
-  - Le domaine métier est totalement fictif : gestion d'une flotte
-    de bornes de recharge électrique.
-
-  Stack : Java 17 + Maven + JUnit 5 + SLF4J/Logback + Jersey (JAX-RS)
-  ====================================================================
--->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -25,7 +13,7 @@
     <packaging>jar</packaging>
 
     <name>BorneFlow</name>
-    <description>POC synthétique Maximo-like pour évaluation IBM Bob</description>
+    <description>POC pour évaluation IBM Bob</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -41,7 +29,6 @@
 
     <dependencies>
 
-        <!-- Logging - SLF4J + Logback -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -53,7 +40,6 @@
             <version>${logback.version}</version>
         </dependency>
 
-        <!-- API REST style OSLC - Jersey (JAX-RS) -->
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-server</artifactId>
@@ -71,7 +57,6 @@
             <version>2.2.224</version>
         </dependency>
 
-        <!-- Tests -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>

@@ -18,7 +18,7 @@
 
 customModes:
   - slug: migration-orchestrator
-    name: 🧭 Migration Orchestrator
+    name: Migration Orchestrator
     roleDefinition: >
       You coordinate migration planning for BorneFlow components by
       delegating to specialist subtasks and synthesizing their results.
@@ -35,7 +35,7 @@ customModes:
       - subtask    
 
   - slug: dependency-analyzer
-    name: 🔗 Dependency Analyzer (baseline)
+    name: Dependency Analyzer (baseline)
     roleDefinition: >
       You analyze component dependencies in BorneFlow using
       analyze_dependencies and return a concise risk synthesis without
@@ -50,7 +50,7 @@ customModes:
       - mcp
 
   - slug: dependency-analyzer-traced
-    name: 🔗 Dependency Analyzer (traced)
+    name: Dependency Analyzer (traced)
     roleDefinition: >
       You analyze component dependencies in BorneFlow using
       analyze_dependencies and return an explicit Thought/Action/
@@ -65,7 +65,7 @@ customModes:
       - mcp
 
   - slug: security-reviewer
-    name: 🛡️ Security Reviewer
+    name: Security Reviewer
     roleDefinition: >
       You review named files for security and RGPD-relevant defects
       following BorneFlow conventions. You are read-only and never edit
@@ -79,7 +79,7 @@ customModes:
       - skill
 
   - slug: test-verifier
-    name: ✅ Test Verifier
+    name: Test Verifier
     roleDefinition: >
       You run local unit tests on named files and report pass/fail with
       raw output. You never modify code and never commit.

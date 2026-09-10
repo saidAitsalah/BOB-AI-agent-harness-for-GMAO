@@ -1,47 +1,12 @@
 #!/usr/bin/env python3
-"""
-mcp_blackboard_server.py — Serveur MCP « borneflow-ctx » (stateful).
-VERSION 3 — journalisation défensive dès la première ligne exécutable.
 
-Contexte du correctif : les logs Bob montrent un échec IMMÉDIAT et
-identique ("MCP error -32000: Connection closed") sur 8 tentatives de
-connexion réparties sur plusieurs heures, alors que la configuration
-mcp.json est structurellement identique à celle du serveur "borneflow"
-qui, lui, se connecte systématiquement. Le spawn du process n'est donc
-pas en cause : le crash a lieu À L'INTÉRIEUR du script, probablement
-avant même d'atteindre asyncio.run(main()) — d'où l'échec du correctif
-v2, qui n'enveloppait que la boucle principale.
-
-Ce fichier enveloppe désormais TOUT — y compris les imports — dans un
-bloc défensif qui écrit la trace complète dans un fichier journal
-d'emplacement absolu, avant de laisser le process se terminer.
-
-Lancement :
-    python mcp_blackboard_server.py --root /chemin/vers/borneflow
-
-Déclaration dans .bob/mcp.json (inchangée) :
-    {
-      "mcpServers": {
-        "borneflow-ctx": {
-          "command": "C:/.../python.exe",
-          "args": ["mcp_blackboard_server.py", "--root", "C:/.../borneflow"],
-          "cwd": "C:/.../borneflow/tools/cactx"
-        }
-      }
-    }
-"""
 import sys
 import os
 import traceback
 from pathlib import Path
 from datetime import datetime
 
-# ---------------------------------------------------------------------
-# Journal de crash — chemin ABSOLU, calculé en tout premier, avant tout
-# autre import qui pourrait échouer. C'est la seule garantie qu'un échec
-# précoce (import mcp, import blackboard, erreur d'argparse) soit
-# capturé quelque part.
-# ---------------------------------------------------------------------
+#logs
 CRASH_LOG = Path(__file__).resolve().parent / "blackboard_mcp_crash.log"
 
 
@@ -59,17 +24,10 @@ def _log_crash(stage: str, exc: BaseException) -> None:
             f.write("-" * 78 + "\n")
             traceback.print_exc(file=f)
     except Exception:
-        # Si même l'écriture du log échoue (ex. dossier en lecture
-        # seule), on ne peut plus rien faire de mieux que sortir
-        # proprement en code d'erreur.
+
         pass
 
 
-# ---------------------------------------------------------------------
-# Étape 1 — imports tiers. C'est le suspect n°1 : si le paquet `mcp`
-# installé expose une API différente de celle attendue (Server,
-# stdio_server, Tool, TextContent ont bougé entre versions du SDK),
-# l'ImportError/AttributeError se produit ICI, avant tout le reste.
 # ---------------------------------------------------------------------
 try:
     import argparse
@@ -81,21 +39,14 @@ try:
     from mcp.server import Server
     from mcp.server.stdio import stdio_server
     from mcp.types import Tool, TextContent
-except BaseException as e:  # BaseException : capte aussi SystemExit éventuel
+except BaseException as e:  
     _log_crash("imports (mcp / blackboard)", e)
     sys.exit(1)
 
 ROOT = Path(".").resolve()
 
 
-# ---------------------------------------------------------------------
-# Étape 2 — construction de l'objet Server et déclaration des outils.
-# Suspect n°2 : si la classe Tool/TextContent du SDK installé exige des
-# champs différents (validation pydantic stricte selon la version),
-# l'erreur se produit à la CRÉATION des objets Tool, potentiellement
-# dès l'appel de list_tools() par le client — donc dans call_tool/
-# list_tools eux-mêmes, protégés séparément plus bas.
-# ---------------------------------------------------------------------
+
 try:
     app = Server("borneflow-ctx")
 except BaseException as e:
@@ -216,8 +167,7 @@ async def call_tool(name: str, arguments: dict):
     except BaseException as e:
         _log_crash(f"call_tool({name})", e)
         res = {"error": str(e), "tool": name}
-    # ensure_ascii=True : évite tout risque d'encodage sur un flux
-    # stdout Windows dont le codepage ne serait pas UTF-8.
+
     return [TextContent(type="text", text=json.dumps(res, indent=2, ensure_ascii=True))]
 
 

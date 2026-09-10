@@ -1,17 +1,6 @@
 #!/usr/bin/env python3
 """
 blackboard.py — Shared Context Store pour BorneFlow.
-
-Principe de conception, dérivé des mesures réelles du benchmark :
-  - La fenêtre de contexte n'est PAS saturée (36K/270K = 13 %).
-  - 88 % des tokens d'entrée sont des lectures de cache.
-  - Chaque appel d'outil coûte ~10,7K tokens d'entrée (re-envoi du contexte
-    accumulé à chaque tour de la boucle agentique).
-
-=> Le levier n'est donc PAS de réduire la taille du contexte, mais de
-   RÉDUIRE LE NOMBRE D'ÉTAPES. Une requête au blackboard doit répondre en
-   UN appel à ce qui prendrait 8 à 13 `read_file`.
-
 Ce module construit un index SQLite de la codebase (graphe de dépendances,
 symboles, métadonnées) et l'invalide au hash de fichier.
 
@@ -95,9 +84,6 @@ def layer_of(path: str) -> str:
     return "other"
 
 
-# --- Parsing Java volontairement simple : regex, pas d'AST.
-#     Suffisant pour BorneFlow ; à remplacer par javalang/tree-sitter
-#     sur une vraie codebase Maximo.
 RE_PKG     = re.compile(r"^\s*package\s+([\w.]+)\s*;", re.M)
 RE_IMPORT  = re.compile(r"^\s*import\s+(?:static\s+)?([\w.]+)\s*;", re.M)
 RE_CLASS   = re.compile(r"^\s*(?:public|protected|private)?\s*(?:final\s+|abstract\s+)?"
@@ -189,7 +175,6 @@ def index_all(root: Path, patterns=("**/*.java", "**/*.properties", "**/*.xml"))
     return dict(files=n, symbols=s, deps=d, reparsed=changed)
 
 
-# ===================== REQUÊTE — le cœur du gain =====================
 def query_context(root: Path, component: str, include_snippets=False) -> dict:
     """
     Répond en UNE fois à ce qui nécessiterait 8 à 13 `read_file`.
