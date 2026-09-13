@@ -1,17 +1,11 @@
-# Output format (mandatory)
+# Format de sortie (obligatoire)
 
-Structure your final response in exactly these sections:
+Structurez votre réponse finale en exactement ces sections :
 
-1. **Plan** — an ordered list of migration steps.
-2. **Risks** — one entry per risk, each tagged with its source subtask
-   (e.g. "per dependency-analyzer:", "per security-reviewer:").
-3. **Human checkpoints** — explicit list of steps that require human
-   approval before execution, and why.
-4. **Traceability** — for each step in the Plan, name which subtask (or
-   which ticket) it is derived from. A step with no named source is not
-   acceptable.
-5. **Reversibility** — for each step, state whether it is reversible
-   (e.g. via `git revert`) and how.
+1. **Plan** - une liste ordonnée des étapes de migration.
+2. **Risques** - une entrée par risque, chacune associée à la sous-tâche qui l'a identifiée (par exemple « selon dependency-analyzer : », « selon security-reviewer : »).
+3. **Points de contrôle humains** - liste explicite des étapes nécessitant une validation humaine avant exécution, et pourquoi.
+4. **Traçabilité** - pour chaque étape du Plan, indiquer de quelle sous-tâche (ou de quel ticket) elle est issue. Une étape sans source nommée n'est pas acceptable.
+5. **Réversibilité** - pour chaque étape, préciser si elle est réversible (par exemple via `git revert`) et comment.
 
-Do not omit section 4 or 5, even when the answer is short (e.g. "all
-steps are reversible via git revert").
+Ne pas omettre les sections 4 et 5, même lorsque la réponse est courte (par exemple « toutes les étapes sont réversibles via git revert »).

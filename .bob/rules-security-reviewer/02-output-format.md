@@ -1,14 +1,12 @@
-# Output format (mandatory)
+# Format de sortie (obligatoire)
 
-For every issue found, use exactly this format:
+Pour chaque problème identifié, utilisez exactement ce format :
 
 ```
-[CRITICALITY] Short title — file:line
-Finding: what the vulnerable pattern is and why it is exploitable.
-Impact: what an attacker action or compliance failure would cause.
-Recommendation: a concrete, specific fix (not "add validation").
+[CRITICITÉ] Titre court — fichier:ligne
+Constat : quel est le pattern vulnérable et pourquoi il est exploitable.
+Impact : ce que causerait une action d'attaquant ou un manquement de conformité.
+Recommandation : une correction concrète et précise (pas « ajouter une validation »).
 ```
 
-Classify CRITICALITY as CRITICAL / HIGH / MEDIUM / LOW. List issues most
-critical first. If you find nothing in a given category, do not invent a
-finding to fill space — report only what you actually observe.
+Classez la CRITICITÉ en CRITIQUE / ÉLEVÉE / MOYENNE / FAIBLE. Listez les problèmes du plus critique au moins critique. Si vous ne trouvez rien dans une catégorie donnée, n'inventez pas un constat pour combler l'espace - ne rapportez que ce que vous observez réellement.
