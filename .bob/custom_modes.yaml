@@ -1,20 +1,5 @@
 # .bob/custom_modes.yaml
-# Multi-agent configuration for T-06, CORRECTED after empirical verification
-# against the official Bob docs (Subagents, Outils) and a passing routing
-# test (start_subtask + mode: security-reviewer → confirmed working).
-#
-# KEY CORRECTION vs the previous version of this file:
-# Bob's subagent mechanism only supports two built-in, anonymous types
-# (explore, general) — it CANNOT spawn a custom mode as a named subagent.
-# The mechanism that actually supports role-based delegation is the
-# SUBTASK tool (start_subtask), which accepts an explicit `mode:`
-# parameter. The orchestrator below uses the `subtask` group, not
-# `subagent`, and its rules file (01-role.md) delegates via start_subtask.
-#
-# Commit this file to the BorneFlow repo alongside .bob/rules-{slug}/.
-# Do not edit .bob/rules/ or the root agents.md when adding this file —
-# these slugs are additive, so the S4 hash reference for the frozen
-# Skills layer used in the T-02/T-03/T-05 MCP comparison stays valid.
+# Multi-agent configuration
 
 customModes:
   - slug: migration-orchestrator
